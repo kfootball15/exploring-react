@@ -17,7 +17,15 @@ import {
 class Greeting extends Component {
   render() {
     return (
-      <Text>Hello {this.props.name}!</Text>
+      <Text style={{flex: 1, backgroundColor: 'skyblue'}}>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+class Inter extends Component {
+  render () {
+    return (
+      <Text style={{flex: 2, backgroundColor: 'powderblue'}}> {this.props.inter} </Text>
     );
   }
 }
@@ -27,7 +35,7 @@ class Greeting extends Component {
 class reactTest extends Component {
   render() {
     let pic = {
-      uri: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"
+      uri: "https://upload.wikimedia.org\/wikipedia\/commons\/d\/de\/Bananavarieties.jpg"
     }
     return (
       <View style={styles.container}>
@@ -36,7 +44,9 @@ class reactTest extends Component {
           Say Hello to your friends:
         </Text>
         <Greeting name="Buddy" />
+        <Inter inter="INTER" />
         <Greeting name="Kitty" />
+        <Inter inter="-- INTER --" />
         <Greeting name="Biddy" />
       </View>
     );
@@ -46,7 +56,7 @@ class reactTest extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: 400,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
