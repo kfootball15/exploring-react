@@ -9,27 +9,40 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
-export default class reactTest extends Component {
+// You can create your own Components, like this "Greeting" component.
+class Greeting extends Component {
   render() {
     return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+// Everything that appears on the screen in ReactJS is some kind of Component
+// 'Image' is an example of a React Native Component. To use it, you must import it above
+class reactTest extends Component {
+  render() {
+    let pic = {
+      uri: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"
+    }
+    return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Image source={pic} style={{width:193, height:110}}/>
+        <Text style={styles.poo}>
+          Say Hello to your friends:
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Greeting name="Buddy" />
+        <Greeting name="Kitty" />
+        <Greeting name="Biddy" />
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -48,6 +61,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  brown:{
+    color: '#7c4e11'
+  }
 });
 
-AppRegistry.registerComponent('reactTest', () => reactTest);
+AppRegistry.registerComponent('reactTest', () => reactTest); // This defines the "Root Component"
